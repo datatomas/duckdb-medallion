@@ -25,7 +25,7 @@ One-liners to list, count, and sanity-check both views and tables.
 
 Environment setup (paths, aliases) so you can work fast.
 
-📁 Repo layout
+Repo layout
 duck-lakehouse/
 ├── README.md
 ├── dbs/
@@ -38,7 +38,7 @@ duck-lakehouse/
 │       ├── init_env.sh                   # export env vars into ~/.bashrc
 ├── Makefile
 
-🧱 One-time setup
+*One-time setup*
 
 Folders (single 1.6TB disk; adjust if you like):
 
