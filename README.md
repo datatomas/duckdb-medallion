@@ -30,10 +30,10 @@ cd duckdb-medallion
 
 # Create lakehouse directories
 bash scripts/make_dirs.sh
-```
 
 This creates:
-```
+
+
 /media/ares/data/db/
 ├── duck/
 │   ├── warehouse/          # Production catalog
@@ -41,7 +41,7 @@ This creates:
 │   ├── backups/            # Database backups
 │   └── tmp/                # Temporary files
 └── lake/
-    ├── bronze/             # Raw Parquet files
+    ├── bronze/             # Raw Parquet files/ Data Base
     ├── silver/             # Cleaned data
     └── gold/               # Aggregated metrics
 2. Configure Environment
