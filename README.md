@@ -301,11 +301,15 @@ duckdb "$DUCK_WH_DB" -c "
 "
 
 # Export to Parquet
+
+
 duckdb "$DUCK_WH_DB" -c "
   COPY (SELECT * FROM gold.fighter_win_rates) 
   TO '/tmp/win_rates.parquet' (FORMAT PARQUET, COMPRESSION SNAPPY);
 "
-Maintenance
+
+
+*Maintenance* 
 Backups
 bash# Simple file copy (DuckDB is a single file)
 cp $DUCK_WH_DB "/media/ares/data/db/duck/backups/warehouse_$(date +%Y%m%d).duckdb"
