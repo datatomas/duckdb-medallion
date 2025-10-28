@@ -1,4 +1,5 @@
-duckdb-medallion
+🦆 Duck Lakehouse (Medallion) – README
+
 A practical DuckDB lakehouse implementation showing how to build a dev/prod workflow with the medallion architecture (Bronze → Silver → Gold). No clusters, no services—just DuckDB, Parquet files, and SQL.
 What This Repo Shows
 This is a working example of how to structure a local analytics stack using DuckDB's embedded database alongside a Parquet-based data lake. It demonstrates:
