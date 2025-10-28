@@ -6,8 +6,8 @@ set -euo pipefail
 # ---------------------------------------------------------------------------
 
 echo "🧱 Creating base directories..."
-mkdir -p /media/ares/data/db/{duck/warehouse,duck/backups,lake/{bronze,silver,gold}}
-mkdir -p /media/ares/data/db/duck/tmp
+mkdir -p /media/user/data/db/{duck/warehouse,duck/backups,lake/{bronze,silver,gold}}
+mkdir -p /media/user/data/db/duck/tmp
 
 # ---------------------------------------------------------------------------
 # 1) Environment setup (no hardcoded paths)
@@ -19,10 +19,10 @@ if ! grep -q "DUCKDB_PATH" ~/.bashrc; then
 cat <<'EOF' >> ~/.bashrc
 
 # >>> DuckDB / Lakehouse Environment >>>
-export DUCKDB_WH_PATH="/media/ares/data/db/duck/warehouse/warehouse.duckdb"
-export DUCKDB_DEV_PATH="/media/ares/data/db/duck/warehouse/warehouse.duckdb"
-export LAKE_ROOT="/media/ares/data/db/lake"
-export DUCK_TMP="/media/ares/data/db/duck/tmp"
+export DUCKDB_WH_PATH="/media/user/data/db/duck/warehouse/warehouse.duckdb"
+export DUCKDB_DEV_PATH="/media/user/data/db/duck/warehouse/warehouse.duckdb"
+export LAKE_ROOT="/media/user/data/db/lake"
+export DUCK_TMP="/media/user/data/db/duck/tmp"
 # <<< DuckDB / Lakehouse Environment <<<
 EOF
 fi
@@ -32,3 +32,4 @@ source ~/.bashrc
 
 echo "✅ DUCKDB_PATH: $DUCKDB_PATH"
 echo "✅ LAKE_ROOT:   $LAKE_ROOT"
+ 
