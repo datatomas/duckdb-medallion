@@ -1,4 +1,4 @@
-🦆 Duck Lakehouse (Medallion) – README
+ 🦆 Duck Lakehouse (Medallion) – README
 
 A tiny, batteries-included DuckDB lakehouse that runs on a single machine.
 It’s built around the medallion pattern (bronze → silver → gold), supports both Parquet + DuckDB catalogs, and gives you one-command workflows for:
@@ -13,7 +13,7 @@ Running quick scrapers/loaders (optional) into bronze
 
 No services, no clusters — just DuckDB + files. Fast, cheap, portable.
 
-✨ What you get
+What you get
 
 bronze_views_from_prod.sql – creates bronze_views.* views in DEV that point to PROD tables (read-only).
 
@@ -35,13 +35,8 @@ duck-lakehouse/
 │   ├── duckdb_parquet_reader.py          # example reader utility (optional)
 │   ├── duckdb_persistent_views.py        # programmatic view creation (optional)
 │   └── scripts/
-│       ├── make_dirs.sh                  # create lake + duck folders
 │       ├── init_env.sh                   # export env vars into ~/.bashrc
-│       └── refresh_dev_dump.sh           # run dump script safely
-├── loaders/
-│   └── nhl_tag_and_save.py               # CSV → Parquet or DuckDB (optional)
 ├── Makefile
-└── .env.example
 
 🧱 One-time setup
 
