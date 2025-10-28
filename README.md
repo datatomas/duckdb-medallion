@@ -311,10 +311,15 @@ duckdb "$DUCK_WH_DB" -c "
 
 *Maintenance* 
 Backups
-bash# Simple file copy (DuckDB is a single file)
+
+Simple file copy (DuckDB is a single file)
+
 cp $DUCK_WH_DB "/media/ares/data/db/duck/backups/warehouse_$(date +%Y%m%d).duckdb"
+
 Monitoring Size
-bash# Check database file size
+
+ 
+Check database file size
 du -sh /media/ares/data/db/duck/warehouse/*.duckdb
 
 # Check lake size
