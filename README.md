@@ -316,9 +316,21 @@ duckdb "$DUCK_WH_DB" -c "
   COPY (SELECT * FROM gold.fighter_win_rates) 
   TO '/tmp/win_rates.parquet' (FORMAT PARQUET, COMPRESSION SNAPPY);
 "
+#clone with python
+#or using python 
+
+python clone_warehouse.py \
+  /media/ares/data/db/duck/warehouse/sports_ml_wh.duckdb \
+  /media/ares/data/db/duck/warehouse/dev_sports_ml_wh.duckdb
+# or
+SRC_WH=/media/ares/data/db/duck/warehouse/sports_ml_wh.duckdb \
+DUCK_DEV_DB=/media/ares/data/db/duck/warehouse/dev_sports_ml_wh.duckdb \
+python clone_warehouse.py
 
 
 *Maintenance* 
+
+
 Backups
 
 Simple file copy (DuckDB is a single file)
