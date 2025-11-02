@@ -222,7 +222,16 @@ parquet_data = con.execute("""
     FROM read_parquet('/media/ares/data/db/lake/bronze/ufc/ufc_fighters/*.parquet')
 """).df()
 ```
+#clone db
+# Disaster Recovery and Dev Instructions 
+# Run viqw copy from wh to dev wh
+duckdb "$DUCK_DEV_DB" < "/media/tomas/data/tomassuarez/Documents/Gitrepos/ml_kuda_sports_lab/src/ml_kuda_sports_lab/dbs/duckdb_views_prod_to_dev.sql"
 
+# run copy from prod to dev
+duckdb "$DUCK_DEV_DB" < duckdb_clone_prod_to_dev.sql
+# or with absolute path:
+duckdb "/media/tomas/data/db/duck/warehouse/dev_sports_ml_wh.duckdb" \
+  < "/media/tomas/data/tomassuarez/Documents/Gitrepos/ml_kuda_sports_lab/src/ml_kuda_sports_lab/dbs/duckdb_clone_prod_to_dev.sql"
 ## Medallion Architecture in Practice
 
 ### Bronze Layer: Raw Data
