@@ -67,6 +67,9 @@ echo "Mounted /dev/mapper/$MAPPER_NAME on $MOUNT_POINT"
 # -----------------------------
 # 8. Create a symlink in home directory
 # -----------------------------
+# -----------------------------
+# 8. Create a symlink in home directory
+# -----------------------------
 if [ -L "$SYMLINK_PATH" ] || [ -e "$SYMLINK_PATH" ]; then
     echo "Removing existing $SYMLINK_PATH"
     rm -rf "$SYMLINK_PATH"
@@ -74,7 +77,10 @@ fi
 ln -s $MOUNT_POINT $SYMLINK_PATH
 echo "Created symlink: $SYMLINK_PATH -> $MOUNT_POINT"
 
-# -----------------------------
+# Ensure user owns the mount point so they can read/write
+sudo chown -R $USER:$USER $MOUNT_POINT
+echo "Ownership of $MOUNT_POINT set to $USER"
+
 # 9. Verify
 # -----------------------------
 df -h | grep $MAPPER_NAME
