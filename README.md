@@ -28,7 +28,7 @@ duckdb-medallion/
 │   ├── dev_init_bronze_catalog.sql     # Clone PROD bronze → DEV (editable tables)
 │   ├── duckdb_views_prod_to_dev.sql    # Read-through views in DEV → PROD
 │   └── duckdb_clone_db_to_parquet.sql  # Views over Parquet lake
-│   └──
+│   └── duckdb_clone_db_to_parquet.sql
 └── scripts/
     ├── make_dirs.sh                    # Create lakehouse dir structure
     └── init_env.sh                     # Export environment variables
