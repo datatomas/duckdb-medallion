@@ -27,7 +27,8 @@ duckdb-medallion/
 ├── sql/
 │   ├── dev_init_bronze_catalog.sql     # Clone PROD bronze → DEV (editable tables)
 │   ├── duckdb_views_prod_to_dev.sql    # Read-through views in DEV → PROD
-│   └── duckdb_views_from_parquet.sql   # Views over Parquet lake
+│   └── duckdb_clone_db_to_parquet.sql  # Views over Parquet lake
+│   └──
 └── scripts/
     ├── make_dirs.sh                    # Create lakehouse dir structure
     └── init_env.sh                     # Export environment variables
@@ -348,6 +349,13 @@ parquet_data = con.execute(
 # Copy prod → backup (DuckDB is a single file)
 cp "$DUCK_WH_DB" "/media/ares/data/db/duck/backups/warehouse_$(date +%Y%m%d).duckdb"
 ```
+**Copy From DB to Parquet duckdb_clone_db_to_parquet.sql  reference **
+export SNAPSHOT_DIR="/media/user/data/db/lake/disaster_recovery/dr_ml_sports_wh_medallion/$(date +%Y%m%d_%H%M%S)"
+
+
+envsubst < /media/user/data/tomassuarez/Documents/Gitrepos/ml_kuda_sports_lab/src/ml_kuda_sports_lab/dbs/duckdb_clone_prod_to_dr_parquet.sql \
+  | duckdb -batch ":memory:"
+
 
 **Python (prod → dev)**
 
@@ -368,6 +376,8 @@ print(f"Copied {src} → {dst}")
 ```
 
 ---
+
+
 
 ## Medallion architecture in practice
 
