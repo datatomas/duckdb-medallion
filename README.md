@@ -357,6 +357,25 @@ envsubst < /media/user/data/tomassuarez/Documents/Gitrepos/ml_kuda_sports_lab/sr
   | duckdb -batch ":memory:"
 
 
+# Clone db duck db warehouse to diasaster
+
+python /home/ares/data/gitrepos/ml_kuda_sports_lab/src/ml_kuda_sports_lab/dbs/duckdb_disaster_clone.py \
+  /mnt/data/db/duck/warehouse/sports_ml_warehouse.duckdb \
+  /mnt/data/db/duck/warehouse/dr/dr_sports_ml_wh.duckdb
+
+
+# timestamp back ups
+
+# This will create: dr_sports_ml_wh_2025-11-03_19-45-30.duckdb
+python /home/ares/data/gitrepos/ml_kuda_sports_lab/src/ml_kuda_sports_lab/dbs/duckdb_disaster_clone.py \
+  /mnt/data/db/duck/warehouse/sports_ml_warehouse.duckdb \
+  /mnt/data/db/duck/warehouse/dr/
+
+# Force dr clone 
+
+python /home/ares/data/gitrepos/ml_kuda_sports_lab/src/ml_kuda_sports_lab/dbs/duckdb_disaster_clone.py   /mnt/data/db/duck/warehouse/sports_ml_warehouse.duckdb   /mnt/data/db/duck/warehouse/dr/dr_sports_ml_wh.duckdb --force
+
+
 **Python (prod → dev)**
 
 ```bash
